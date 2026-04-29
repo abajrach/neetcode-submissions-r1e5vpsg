@@ -1,0 +1,13 @@
+class Solution {
+
+    // Brute force. O(n^2)
+    public int maxArea(int[] heights) {
+        int max = 0;
+        for (int i = 0; i < heights.length; i++) {
+            for (int j = i + 1; j < heights.length; j++) {
+                max = Math.max(max, Math.min(heights[i], heights[j]) * (j - i));
+            }
+        }
+        return max;
+    }
+}
