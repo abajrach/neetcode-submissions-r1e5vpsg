@@ -1,0 +1,20 @@
+class Solution {
+
+    // Binary search. O(logn)
+    public int mySqrt(int x) {
+        int l = 0, r = x, candidate = 0;
+
+        while (l <= r) {
+            int m = l + (r - l) / 2;
+            if ((long) m * m > x) {
+                r = m - 1;
+            } else if ((long) m * m < x) {
+                candidate = m;
+                l = m + 1;
+            } else {
+                return m;
+            }
+        }
+        return candidate;
+    }
+}
